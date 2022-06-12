@@ -1,4 +1,3 @@
-// { Driver Code Starts
 //Initial template for C++
 
 #include <bits/stdc++.h>
@@ -6,25 +5,31 @@ using namespace std;
 
 
  // } Driver Code Ends
+
+
 //User function template for C++
 
 class Solution{
 public:
     int remove_duplicate(int a[],int n){
         
-        int arr[n];
-        int nosElements=0;
+        int j = 0;
+        int temp[n];
+        for(int i = 0; i < n; i++)
+        {
+            if(a[i] != a[i + 1])
+            {
+                temp[j++] = a[i];
+            }
+        }
         
-	for(int i=0; i<n; i++){
-        	for(int j=i; j<n; j++){
-            		if(arr[nosElements]!=a[j]){
-                		arr[nosElements] = a[j];
-                		nosElements++;
-            		}
-        	}
-	}
+        for(int i = 0; i < j; i++)
+        {
+            a[i] = temp[i];
+        }
+        
+        return j;
         // code here
-        return arr[nosElements];
     }
 };
 
